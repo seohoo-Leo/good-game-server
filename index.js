@@ -26,12 +26,13 @@ app.get('/api/platforms', async (req, res) => {
 
 
 
-app.get('/api/reddit', async (req, res) => {
-    const id = req.query.reddit
+app.get('/api/recentTrend', async (req, res) => {
+    const startDate = req.query.startDate
+    const endDate = req.query.endDate
 
   try {
     const { data } = await axios.get(
-      `https://api.rawg.io/api/games/${id}/reddit?key=${API_KEY}`
+      `https://api.rawg.io/api/games/?key=${API_KEY}&ordering=-added&dates=${startDate},${endDate}`
     );
     res.json(data);
     console.log(data)
