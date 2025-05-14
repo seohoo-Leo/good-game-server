@@ -32,7 +32,7 @@ app.get('/api/recentTrend', async (req, res) => {
 
   try {
     const { data } = await axios.get(
-      `https://api.rawg.io/api/games/?key=${API_KEY}&ordering=-added&dates=${startDate},${endDate}`
+      `https://api.rawg.io/api/games?key=${API_KEY}&ordering=-added&dates=${startDate},${endDate}`
     );
     res.json(data);
     console.log(data)
