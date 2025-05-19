@@ -33,7 +33,7 @@ app.get('/api/gameInfo', async (req, res) => {
 
   try {
     const { data } = await axios.get(
-      `https://api.rawg.io/api/games?key=${API_KEY}&ordering=${mode}&dates=${startDate},${endDate}`
+      `https://api.rawg.io/api/games?key=${API_KEY}&ordering=${mode}&dates=${startDate},${endDate}&page=10`
     );
     res.json(data);
     console.log(data)
@@ -46,3 +46,4 @@ app.get('/api/gameInfo', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`🔐 서버 실행 중: http://localhost:${PORT}`);
 });
+
