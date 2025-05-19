@@ -33,7 +33,7 @@ app.get('/api/gameInfo', async (req, res) => {
 
   try {
     const { data } = await axios.get(
-      `https://api.rawg.io/api/games?key=${API_KEY}&ordering=${mode}&dates=${startDate},${endDate}&page=10`
+      `https://api.rawg.io/api/games?key=${API_KEY}&ordering=${mode}&dates=${startDate},${endDate},page_size=50`
     );
     res.json(data);
     console.log(data)
