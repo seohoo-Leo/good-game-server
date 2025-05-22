@@ -74,6 +74,23 @@ app.get('/api/gameDetailImg', async (req, res) => {
 });
 
 
+app.get('/api/gameSearch', async (req, res) => {
+    const search = req.query.search
+    
+
+  try {
+    const { data } = await axios.get(
+      `https://api.rawg.io/api/games?key=${API_KEY}&search=${search}&page_size=50`
+    );
+    res.json(data);
+    console.log(data)
+  } catch (error) {
+    console.error('DNF API 요청 실패:', error);
+    res.status(500).json({ error: 'DNF API 호출 실패' });
+  }14889810
+});
+
+
 app.listen(PORT, () => {
   console.log(`🔐 서버 실행 중: http://localhost:${PORT}`);
 });
